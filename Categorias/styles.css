@@ -1,0 +1,111 @@
+        /* Centrar header */
+        header {
+            text-align: center;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        /* Centrar nav */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .categorias {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        .categorias img {
+            width: 80%;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .juegos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            justify-items: center;
+        }
+
+        .juegos .juego {
+            text-align: center;
+            border: 1px solid #000000;
+            padding: 10px;
+            width: 180px;
+            background: #000000;
+        }
+
+        .juegos .juego img {
+            width: 100%;
+            height: auto;
+        }
+
+        
+        .fila2 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .row {
+            row-gap: 40px; 
+        }
+
+
+        .categorias h2 {
+            margin-bottom: 30px; 
+        }
+
+.menu {
+    list-style: none; 
+    padding: 0;
+    display: flex; 
+    justify-content: center; /* Centrar menú */
+    background-color: #ffffff; 
+}
+
+.menu li {
+    margin: 0 20px; 
+}
+
+.menu a {
+    text-decoration: none; 
+    color: white; 
+    padding: 10px 15px; 
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #555; 
+    border-radius: 5px;
+}
+
+
+.card-img-top {
+    height: 160px; 
+    object-fit: cover;
+}
+
+
+/* }Agrandar tarjetas */
+
+.card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}

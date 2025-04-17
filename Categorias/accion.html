@@ -1,0 +1,147 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juegos de acción</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360° Gamestore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- }Agregar barra de navegación. -->
+
+          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"> 
+                <img src="Imagenes/logo.jpg" width="100" alt="Logo">
+                
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.html">Iniciar sesión</a>
+                </li>            
+                <a class="nav-link" href="carrito.html" id="cart-link">
+                    🛒 Carrito (<span id="cart-count">0</span>)
+                </a>
+                  <li class="nav-item">
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+    <header>
+        <h1 class="text-center mt-4">Juegos de Acción</h1>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Juego 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Imagenes/gearsofwar.png" class="card-img-top" alt="Gears of War 3">
+                    <button class="btn btn-success add-to-cart" data-name="Juego 1" data-price="29990">Agregar al carrito</button>
+                    <div class="card-body">
+                        <h5 class="card-title">Gears of War 3</h5>
+                        <p class="card-text">Un shooter en tercera persona con intensa acción y un épico final para la trilogía de Marcus Fenix.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Imagenes/halo4.png" class="card-img-top" alt="Halo 4">
+                    <button class="btn btn-success add-to-cart" data-name="Juego 1" data-price="29990">Agregar al carrito</button>
+                    <div class="card-body">
+                        <h5 class="card-title">Halo 4</h5>
+                        <p class="card-text">El regreso del Jefe Maestro en una batalla contra los Prometeos y el Didacta.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Juego 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="Imagenes/redredemption.png" class="card-img-top" alt="Red Dead Redemption">
+                    <button class="btn btn-success add-to-cart" data-name="Juego 1" data-price="29990">Agregar al carrito</button>
+                    <div class="card-body">
+                        <h5 class="card-title">Red Dead Redemtpion</h5>
+                        <p class="card-text">Un western de mundo abierto con una historia profunda y mecánicas de disparo impresionantes.</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Almacenar los datos.} -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Agrega este script aquí, antes de </body> -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cartCount = document.getElementById("cart-count"); // Contador del carrito
+    const buttons = document.querySelectorAll(".add-to-cart"); // Botones de agregar
+
+    // Cargar carrito desde localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Actualiza el contador del carrito
+    function updateCartCount() {
+        cartCount.textContent = cart.length;
+    }
+
+    // Agregar juego al carrito
+    buttons.forEach(button => {
+        button.addEventListener("click", function () {
+            const name = this.getAttribute("data-name");
+            const price = parseFloat(this.getAttribute("data-price"));
+
+            // Agregar al carrito
+            cart.push({ name, price });
+            localStorage.setItem("cart", JSON.stringify(cart)); // Guardar en localStorage
+
+            updateCartCount(); // Actualizar el contador
+            alert(`${name} ha sido agregado al carrito.`);
+        });
+    });
+
+    updateCartCount(); // Asegurar que el contador se actualice al cargar la página
+});
+</script>
+</body>
+</html>
+
+
+</body>
+</html>

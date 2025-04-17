@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - 360 Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"> 
+                <img src="Imagenes/logo.jpg" width="100" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contacto.html">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="carrito.html">Carrito 🛒 (<span id="cart-count">0</span>)</a></li>
+                </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido de la página de contacto -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <h2 class="text-center">Contacto 🎮</h2>
+
+                    <div class="mb-3">
+                        <strong>Email:</strong> <a href="mailto:videojuegos@360gamestore.com">videojuegos@360gamestore.com</a>
+                    </div>
+                    <div class="mb-3">
+                        <strong>Teléfono:</strong> <a href="tel:+569360360000">+56 9 3603 6000</a>
+                    </div>
+
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="correo" placeholder="Correo" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="mensaje" rows="4" placeholder="Escriba su mensaje aquí" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- }Almenar los datos. -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector("form");
+    
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); v
+    
+            const nombre = document.getElementById("nombre").value;
+            const correo = document.getElementById("correo").value;
+            const mensaje = document.getElementById("mensaje").value;
+    
+            const datosContacto = {
+                nombre: nombre,
+                correo: correo,
+                mensaje: mensaje
+            };
+    
+            let contactosGuardados = JSON.parse(localStorage.getItem("contactos")) || [];
+    
+            contactosGuardados.push(datosContacto);
+    
+            localStorage.setItem("contactos", JSON.stringify(contactosGuardados));
+    
+            alert("Mensaje enviado con éxito");
+    
+            form.reset();
+        });
+    });
+    </script>
+
+</body>
+</html>
